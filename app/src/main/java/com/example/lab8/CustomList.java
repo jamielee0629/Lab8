@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class CustomList extends ArrayAdapter<City> {
 
-    private ArrayList<City> cities;
+    private static ArrayList<City> cities;
     private Context context;
 
     public CustomList(Context context, ArrayList<City> cities) {
@@ -62,7 +62,12 @@ public class CustomList extends ArrayAdapter<City> {
     public void addCity(City city) {
         cities.add(city);
     }
-    public boolean hasCity(City city) {
 
+    public static boolean hasCity(City city) {
+        if (cities.contains(city)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
